@@ -7,15 +7,7 @@ on:
 
 jobs:
 
-  job-Hello_World:
-    runs-on: ubuntu-latest
-
-    steps:
-
-    - name: Step 01 - Hello World
-      run : echo hello world
-
-  job-Terraform_Apply:
+  job-Terraform_LifeCycle:
     runs-on: ubuntu-latest
  
     steps:
@@ -49,7 +41,14 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_SESSION_TOKEN    : ${{ secrets.AWS_SESSION_TOKEN }}
 
-    - name: Step 06 - Terraform Apply
+    - name: Step 06 - Terraform Plan
+      env :
+        AWS_ACCESS_KEY_ID    : ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_SESSION_TOKEN    : ${{ secrets.AWS_SESSION_TOKEN }}
+      run : terraform plan -input=false
+
+    - name: Step 07 - Terraform Apply
       env :
         AWS_ACCESS_KEY_ID    : ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
