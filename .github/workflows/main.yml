@@ -1,0 +1,16 @@
+name: Terraform Run
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+
+  job-Hello_World:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Step 01 - Hello World
+      run : echo hello world
