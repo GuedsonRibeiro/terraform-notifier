@@ -1,17 +1,17 @@
 # MODULES
-#module "vpc" {
-#    source            = "./modules/vpc"
-#    vpc_cidr          = "${var.vpc_cidr}"
-#    sn_pub_1a_cidr    = "${var.vpc_sn_pub_1a_cidr}"
-#    sn_pub_1c_cidr    = "${var.vpc_sn_pub_1c_cidr}"
-#    sn_priv_1a_cidr   = "${var.vpc_sn_priv_1a_cidr}"
-#    sn_priv_1c_cidr   = "${var.vpc_sn_priv_1c_cidr}"
-#}
+module "vpc" {
+    source            = "./modules/vpc"
+    vpc_cidr          = "${var.vpc_cidr}"
+    sn_pub_1a_cidr    = "${var.vpc_sn_pub_cidr_1a}"
+    sn_pub_1c_cidr    = "${var.vpc_sn_pub_cidr_1c}"
+    sn_priv_1a_cidr   = "${var.vpc_sn_priv_cidr_1a}"
+    sn_priv_1c_cidr   = "${var.vpc_sn_priv_cidr_1c}"
+}
 
 #module "rds" {
 #    source            = "./modules/rds"
-#    sn_priv_1a_id     = "${module.vpc.sn_priv_1a_id}"
-#    sn_priv_1c_id     = "${module.vpc.sn_priv_1c_id}"
+#    sn_priv_1a_id     = "${module.vpc.sn_priv_id_1a}"
+#    sn_priv_1c_id     = "${module.vpc.sn_priv_id_1c}"
 #    sg_priv_id        = "${module.ec2.sg_priv_id}"
 #    family            = "${var.rds_family}"
 #    instance_class    = "${var.rds_instance_class}"
@@ -25,8 +25,8 @@
 #    vpc_id            = "${module.vpc.vpc_id}"
 #    ami               = "${var.ec2_ami}"
 #    instance_type     = "${var.ec2_instance_type}"
-#    sn_pub_1a_id      = "${module.vpc.sn_pub_1a_id}"
-#    sn_pub_1c_id      = "${module.vpc.sn_pub_1c_id}"
+#    sn_pub_1a_id      = "${module.vpc.sn_pub_id_1a}"
+#    sn_pub_1c_id      = "${module.vpc.sn_pub_id_1c}"
 #    desired_capacity  = "${var.ec2_desired_capacity}"
 #    min_size          = "${var.ec2_min_size}"
 #    max_size          = "${var.ec2_max_size}"

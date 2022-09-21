@@ -4,22 +4,22 @@ variable "vpc_cidr" {
     default = "10.0.0.0/16"
 }
 
-variable "vpc_sn_pub_1a_cidr" {
+variable "vpc_sn_pub_cidr_1a" {
     type    = string
     default = "10.0.1.0/24"
 }
 
-variable "vpc_sn_pub_1c_cidr" {
+variable "vpc_sn_pub_cidr_1c" {
     type    = string
     default = "10.0.2.0/24"
 }
 
-variable "vpc_sn_priv_1a_cidr" {
+variable "vpc_sn_priv_cidr_1a" {
     type    = string
     default = "10.0.3.0/24"
 }
 
-variable "vpc_sn_priv_1c_cidr" {
+variable "vpc_sn_priv_cidr_1c" {
     type    = string
     default = "10.0.4.0/24"
 }
