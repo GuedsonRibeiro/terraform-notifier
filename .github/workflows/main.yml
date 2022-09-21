@@ -1,4 +1,4 @@
-name: Terraform Run
+name: IaC Lifecycle
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
 
-  job-IaC_Mgt_Lifecycle:
+  job-Terraform:
     runs-on: ubuntu-latest
  
     steps:
