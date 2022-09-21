@@ -1,7 +1,7 @@
 # VARS
 
 variable "bucket_name" {
-    default = "static-site-kledson-basso-notifier"
+    default = "terraform-notifier"
 }
 
 variable "website_endpoint" {
