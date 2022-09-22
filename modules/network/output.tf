@@ -4,11 +4,11 @@ output "vpc_id" {
 }
 
 output "vpc_sg_pub_id" {
-    value = "${aws_vpc.vpc_sg_pub.id}"
+    value = "${aws_security_group.vpc_sg_pub.id}"
 }
 
 output "vpc_sg_priv_id" {
-    value = "${aws_vpc.vpc_sg_priv.id}"
+    value = "${aws_security_group.vpc_sg_priv.id}"
 }
 
 output "vpc_sn_pub_id_1a" {
