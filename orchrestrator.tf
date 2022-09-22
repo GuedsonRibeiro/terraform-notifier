@@ -14,11 +14,12 @@ module "database" {
     vpc_sn_priv_id_1c             = "${module.network.vpc_sn_priv_id_1c}"
     ec2_sg_priv_id                = "${module.compute.ec2_sg_priv_id}"
     rds_identifier                = "${var.rds_identifier}"
-    rds_dbname                    = "${var.rds_dbname}"
-    rds_db_sn_group_name          = "${var.rds_db_sn_group_name}"
-    rds_db_param_group_name       = "${var.rds_db_param_group_name}"
+    rds_sn_group_name             = "${var.rds_sn_group_name}"
+    rds_param_group_name          = "${var.rds_param_group_name}"
     rds_primary_availability_zone = "${var.rds_primary_availability_zone}"
-    
+    rds_dbname                    = "${var.rds_dbname}"
+    rds_dbuser                    = "${var.rds_dbuser}"
+    rds_dbpassword                = "${var.rds_dbpassword}"   
 }
 
 module "compute" {
@@ -33,7 +34,7 @@ module "compute" {
 #    min_size         = "${var.ec2_min_size}"
 #    max_size         = "${var.ec2_max_size}"
 #    rds_endpoint     = "${module.database.rds_endpoint}"
-#    rds_user         = "${var.rds_user}"
-#    rds_password     = "${var.rds_password}"
-#    rds_name         = "${var.rds_name}"
+#    rds_dbuser       = "${var.rds_dbuser}"
+#    rds_dbpassword   = "${var.rds_dbpassword}"
+#    rds_dbname       = "${var.rds_dbname}"
 }

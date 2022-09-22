@@ -30,24 +30,34 @@ variable "rds_identifier" {
     default = "rds-notifier"
 }
 
-variable "rds_dbname" {
+variable "rds_sn_group_name" {
     type    = string
-    default = "rdsdbnotifier"
+    default = "rds-sn-group-notifier"
 }
 
-variable "rds_db_sn_group_name" {
+variable "rds_param_group_name" {
     type    = string
-    default = "rds-db-sn-group-notifier"
-}
-
-variable "rds_db_param_group_name" {
-    type    = string
-    default = "rds-db-param-group-notifier"
+    default = "rds-param-group-notifier"
 }
 
 variable "rds_primary_availability_zone" {
     type    = string
     default = "us-east-1a"
+}
+
+variable "rds_dbname" {
+    type    = string
+    default = "rdsdbnotifier"
+}
+
+variable "rds_dbuser" {
+    type    = string
+    default = "rdsdbadmin"
+}
+
+variable "rds_dbpassword" {
+    type    = string
+    default = "rdsdbadminpwd"
 }
 
 # COMPUTE VARS CUSTOM VALUES

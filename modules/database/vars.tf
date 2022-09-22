@@ -6,14 +6,14 @@ variable "vpc_sn_priv_id_1c" {}
 variable "ec2_sg_priv_id" {}
 
 # DATABASE VARS DEFAULT VALUES
-variable "rds_db_sn_group_name" {
+variable "rds_sn_group_name" {
     type    = string
-    default = "rds-db-sn-group-name"
+    default = "rds-sn-group-name"
 }
 
-variable "rds_db_param_group_name" {
+variable "rds_param_group_name" {
     type    = string
-    default = "rds-db-param-group-name"
+    default = "rds-param-group-name"
 }
 
 variable "rds_identifier" {
@@ -66,6 +66,16 @@ variable "rds_monitoring_interval" {
     default = 0
 }
 
+variable "rds_skip_final_snapshot" {
+    type    = bool
+    default = true
+}
+
+variable "rds_primary_availability_zone" {
+    type    = string
+    default = "us-east-1a"
+}
+
 variable "rds_dbname" {
     type    = string
     default = "rdsdbname"
@@ -79,14 +89,4 @@ variable "rds_dbuser" {
 variable "rds_dbpassword" {
     type    = string
     default = "rdsdbpassword" 
-}
-
-variable "rds_skip_final_snapshot" {
-    type    = bool
-    default = true
-}
-
-variable "rds_primary_availability_zone" {
-    type    = string
-    default = "us-east-1a"
 }

@@ -1,12 +1,12 @@
 # RESOURCE: DB SUBNET GROUP
-resource "aws_db_subnet_group" "rds_db_sn_group" {
-    name       = "${var.rds_db_sn_group_name}"
+resource "aws_db_subnet_group" "rds_sn_group" {
+    name       = "${var.rds_sn_group_name}"
     subnet_ids = ["${var.vpc_sn_priv_id_1a}", "${var.vpc_sn_priv_id_1c}"]
 }
 
 # RESOURCE: DB PARAMETER GROUP
-resource "aws_db_parameter_group" "rds_db_param_group" {
-    name   = "${var.rds_db_param_group_name}"
+resource "aws_db_parameter_group" "rds_param_group" {
+    name   = "${var.rds_param_group_name}"
     family = "${var.rds_family}"
     parameter {
         name  = "character_set_server"
@@ -32,8 +32,8 @@ resource "aws_db_instance" "rds_dbinstance" {
     username               = "${var.rds_dbuser}"
     password               = "${var.rds_dbpassword}"
     skip_final_snapshot    = "${var.rds_skip_final_snapshot}"
-    db_subnet_group_name   = aws_db_subnet_group.rds_db_sn_group.name
-    parameter_group_name   = aws_db_parameter_group.rds_db_param_group.name
+    db_subnet_group_name   = aws_db_subnet_group.rds_sn_group.name
+    parameter_group_name   = aws_db_parameter_group.rds_param_group.name
     availability_zone      = "${var.rds_primary_availability_zone}"
     vpc_security_group_ids = ["${var.ec2_sg_priv_id}"]
 }
