@@ -1,5 +1,5 @@
 # MODULES
-module "vpc" {
+module "network" {
     source              = "./modules/network"
     vpc_cidr            = "${var.vpc_cidr}"
     vpc_sn_pub_cidr_1a  = "${var.vpc_sn_pub_cidr_1a}"
@@ -20,7 +20,7 @@ module "vpc" {
 #    db_name           = "${var.rds_db_name}"
 #}
 
-module "ec2" {
+module "compute" {
     source              = "./modules/compute"
     vpc_id              = "${module.vpc.vpc_id}"
     vpc_cidr            = "${module.vpc.vpc_cidr}"
