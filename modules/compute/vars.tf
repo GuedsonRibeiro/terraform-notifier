@@ -1,15 +1,14 @@
 # NETWORK VARS DEFAULT VALUES (INPUT IS REQUIRED BECAUSE NO DEFAULT IS DEFINED)
 variable "vpc_id" {}
 variable "vpc_cidr" {}
-#variable "vpc_sn_pub_id_1a" {}
-#variable "vpc_sn_pub_id_1c" {}
+variable "vpc_sn_pub_id_1a" {}
+variable "vpc_sn_pub_id_1c" {}
 
 # DATABASE VARS DEFAULT VALUES (INPUT IS REQUIRED BECAUSE NO DEFAULT IS DEFINED)
-#variable "rds_endpoint" {}
-#variable "rds_user" {}
-#variable "rds_password" {}
-#variable "rds_dbname" {}
-
+variable "rds_endpoint" {}
+variable "rds_dbuser" {}
+variable "rds_dbpassword" {}
+variable "rds_dbname" {}
 
 # COMPUTE VARS DEFAULT VALUES
 variable "ec2_sg_cidr_all" {
@@ -42,19 +41,24 @@ variable "ec2_sg_protocol_tcp" {
     default = "tcp"
 }
 
-variable "ec2_ami" {
+variable "ec2_lt_name" {
+    type    = string
+    default = "ec2_lt_name"
+}
+
+variable "ec2_lt_ami" {
     type    = string
     default = "ami-02e136e904f3da870"
 }
 
-variable "ec2_instance_type" {
+variable "ec2_lt_instance_type" {
     type    = string
     default = "t2.micro"
 }
 
-variable "ec2_ssh_key" {
+variable "ec2_lt_ssh_key_name" {
     type    = string
-    default = "vockey"
+    default = "ec2_lt_ssh_key_name"
 }
 
 variable "ec2_protocol" {

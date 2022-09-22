@@ -44,35 +44,24 @@ resource "aws_security_group" "ec2_sg_priv" {
 }
 
 # RESOURCE: EC2 LAUNCH TEMPLATE
-#data "template_file" "user_data" {
-#    template = "${file("./modules/compute/scripts/user_data.sh")}"
-#    vars = {
-#        rds_endpoint = "${var.rds_endpoint}"
-#        rds_user     = "${var.rds_user}"
-#        rds_password = "${var.rds_password}"
-#        rds_name     = "${var.rds_dbname}"
-#    }
-#}
+data "template_file" "user_data" {
+    template = "${file("./modules/compute/scripts/user_data.sh")}"
+    vars = {
+        rds_endpoint   = "${var.rds_endpoint}"
+        rds_dbuser     = "${var.rds_dbuser}"
+        rds_dbpassword = "${var.rds_dbpassword}"
+        rds_dbname     = "${var.rds_dbname}"
+    }
+}
 
-#resource "aws_launch_template" "lt_app_notify" {
-#    name                   = "lt_app_notify"
-#    image_id               = "${var.ami}"
-#    instance_type          = "${var.instance_type}"
-#    vpc_security_group_ids = [aws_security_group.sg_pub.id]
-#    key_name               = "${var.ssh_key}"
-#    user_data              = "${base64encode(data.template_file.user_data.rendered)}"
-
-#    tag_specifications {
-#        resource_type = "instance"
-#        tags = {
-#            Name = "app_notify"
-#        }
-#    }
-
-#    tags = {
-#        Name = "lt_app_notify"
-#    }
-#}
+resource "aws_launch_template" "ec2_lt" {
+    name                   = "${var.ec2_lt_name}"
+    image_id               = "${var.ec2_lt_ami}"
+    instance_type          = "${var.ec2_lt_instance_type}"
+    key_name               = "${var.lt_ssh_key_name}"
+    user_data              = "${base64encode(data.template_file.user_data.rendered)}"
+    vpc_security_group_ids = [aws_security_group.ec2_sg_pub.id]
+}
 
 # RESOURCE: APPLICATION LOAD BALANCER
 #resource "aws_lb" "lb_app_notify" {

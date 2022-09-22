@@ -61,14 +61,24 @@ variable "rds_dbpassword" {
 }
 
 # COMPUTE VARS CUSTOM VALUES
-variable "ec2_ami" {
+variable "ec2_lt_name" {
     type    = string
-    default = "ami-02e136e904f3da870"
+    default = "ec2_lt_name_notifier"
 }
 
-variable "ec2_instance_type" {
+variable "ec2_lt_ami" {
+    type    = string
+    default = "ami-05fa00d4c63e32376"
+}
+
+variable "ec2_lt_instance_type" {
     type    = string
     default = "t2.micro"
+}
+
+variable "ec2_lt_ssh_key_name" {
+    type    = string
+    default = "vockey"
 }
 
 variable "ec2_desired_capacity" {

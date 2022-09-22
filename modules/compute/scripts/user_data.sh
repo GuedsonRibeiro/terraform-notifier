@@ -14,8 +14,8 @@ cat <<EOT >> /var/www/config.php
 <?php
 
 define('DB_SERVER', '${rds_endpoint}');
-define('DB_USERNAME', '${rds_user}');
-define('DB_PASSWORD', '${rds_password}');
+define('DB_USERNAME', '${rds_dbuser}');
+define('DB_PASSWORD', '${rds_dbpassword}');
 define('DB_DATABASE', '${rds_dbname}');
 
 ?>
