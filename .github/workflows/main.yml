@@ -4,14 +4,6 @@ on:
   push:
     branches:
     - main
-    inputs:
-      name:
-        type: choice
-        options: 
-        - "-input=false -destroy"
-        - "-input=false"
-      message:
-        required: true
 
 jobs:
 
