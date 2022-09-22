@@ -22,7 +22,7 @@ module "network" {
 
 module "compute" {
     source              = "./modules/compute"
-#    vpc_id              = "${module.network.vpc_id}"
+    vpc_id              = "${module.network.vpc_id}"
     vpc_cidr            = "${var.vpc_cidr}"
 #    ami               = "${var.ec2_ami}"
 #    instance_type     = "${var.ec2_instance_type}"

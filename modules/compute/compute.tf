@@ -2,38 +2,38 @@
 resource "aws_security_group" "ec2_sg_pub" {
     name        = "ec2_sg_pub"
 #    description = "Security Group public"
-    vpc_id      = "${module.network.vpc_id}"
+    vpc_id      = "${var.vpc_id}"
     
     egress {
 #        description = "All to All"
-        from_port   = "${var.ec2_port_all}"
-        to_port     = "${var.ec2_port_all}"
-        protocol    = "${var.ec2_protocol_any}"
-        cidr_blocks = ["${module.network.vpc_cidr_all}"]
+        from_port   = "${var.ec2_sg_port_all}"
+        to_port     = "${var.ec2_sg_port_all}"
+        protocol    = "${var.ec2_sg_protocol_any}"
+        cidr_blocks = ["${var.ec2_sg_cidr_all}"]
     }
 
     ingress {
 #        description = "All from 10.0.0.0/16"
-        from_port   = "${var.ec2_port_all}"
-        to_port     = "${var.ec2_port_all}"
-        protocol    = "${var.ec2_protocol_any}"
-        cidr_blocks = ["${module.network.vpc_cidr}"]
+        from_port   = "${var.ec2_sg_port_all}"
+        to_port     = "${var.ec2_sg_port_all}"
+        protocol    = "${var.ec2_sg_protocol_any}"
+        cidr_blocks = ["${var.vpc_cidr}"]
     }
 
     ingress {
  #       description = "TCP/22 from All"
-        from_port   = "${var.ec2_port_ssh}"
-        to_port     = "${var.ec2_port_ssh}"
-        protocol    = "${var.ec2_protocol_tcp}"
-        cidr_blocks = ["${module.network.vpc_cidr_all}"]
+        from_port   = "${var.ec2_sg_port_ssh}"
+        to_port     = "${var.ec2_sg_port_ssh}"
+        protocol    = "${var.ec2_sg_protocol_tcp}"
+        cidr_blocks = ["${var.ec2_sg_cidr_all}"]
     }
     
     ingress {
  #       description = "TCP/80 from All"
-        from_port   = "${var.ec2_port_http}"
-        to_port     = "${var.ec2_port_http}"
-        protocol    = "${var.ec2_protocol_tcp}"
-        cidr_blocks = ["${module.network.vpc_cidr_all}"]
+        from_port   = "${var.ec2_sg_port_http}"
+        to_port     = "${var.ec2_sg_port_http}"
+        protocol    = "${var.ec2_sg_protocol_tcp}"
+        cidr_blocks = ["${var.ec2_sg_cidr_all}"]
     }
 
 #    tags = {
@@ -48,18 +48,18 @@ resource "aws_security_group" "ec2_sg_priv" {
     
     egress {
 #        description = "All to All"
-        from_port   = "${var.ec2_port_all}"
-        to_port     = "${var.ec2_port_all}"
-        protocol    = "${var.ec2_protocol_any}"
-        cidr_blocks = ["${module.network.vpc_cidr_all}"]
+        from_port   = "${var.ec2_sg_port_all}"
+        to_port     = "${var.ec2_sg_port_all}"
+        protocol    = "${var.ec2_sg_protocol_any}"
+        cidr_blocks = ["${var.ec2_sg_cidr_all}"]
     }
 
     ingress {
  #       description = "All from 10.0.0.0/16"
-        from_port   = "${var.ec2_port_all}"
-        to_port     = "${var.ec2_port_all}"
-        protocol    = "${var.ec2_protocol_any}"
-        cidr_blocks = ["${module.network.vpc_cidr}"]
+        from_port   = "${var.ec2_sg_port_all}"
+        to_port     = "${var.ec2_sg_port_all}"
+        protocol    = "${var.ec2_sg_protocol_any}"
+        cidr_blocks = ["${var.vpc_cidr}"]
     }
 
 #    tags = {
