@@ -1,6 +1,6 @@
 # MODULES
 module "vpc" {
-    source            = "./modules/vpc"
+    source            = "./modules/network"
     vpc_cidr          = "${var.vpc_cidr}"
     sn_pub_1a_cidr    = "${var.vpc_sn_pub_cidr_1a}"
     sn_pub_1c_cidr    = "${var.vpc_sn_pub_cidr_1c}"
