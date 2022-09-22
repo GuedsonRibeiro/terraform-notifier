@@ -4,6 +4,15 @@ on:
   push:
     branches:
     - main
+  workflow_dispatch:
+    inputs:
+      name:
+        type: choice
+        options: 
+        - "-input=false -destroy"
+        - "-input=false"
+      message:
+        required: true
 
 jobs:
 
