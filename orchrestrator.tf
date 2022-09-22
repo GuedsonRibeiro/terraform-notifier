@@ -6,6 +6,7 @@ module "network" {
     vpc_sn_pub_cidr_1c  = "${var.vpc_sn_pub_cidr_1c}"
     vpc_sn_priv_cidr_1a = "${var.vpc_sn_priv_cidr_1a}"
     vpc_sn_priv_cidr_1c = "${var.vpc_sn_priv_cidr_1c}"
+    vpc_id              = "${module.network.vpc_id}"
 }
 
 #module "database" {
