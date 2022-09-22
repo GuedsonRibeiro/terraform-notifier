@@ -1,7 +1,13 @@
 # NETWORK VARS TO BE USED FOR THE SECURITY GROUPS
-variable "vpc_id" {}
+variable "vpc_id" {
+    type    = string
+    default = "${module.network.vpc_id}"
+}
 
-variable "vpc_cidr" {}
+variable "vpc_cidr" {
+    type    = string
+    default = "${var.network.vpc_cidr}"
+}
 
 variable "ec2_sg_cidr_all" {
     type    = string
