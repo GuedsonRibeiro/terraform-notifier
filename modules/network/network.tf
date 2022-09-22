@@ -79,16 +79,16 @@ resource "aws_eip" "eip_pub_1c" {
 }
 
 # NAT GATEWAY UNDER PUBLIC SUBNETS
-#resource "aws_nat_gateway" "ngw_pub_1a" {
-#    allocation_id = aws_eip.eip_pub_1a.id
-#    subnet_id     = aws_subnet.sn_pub_1a.id
+resource "aws_nat_gateway" "ngw_pub_1a" {
+    allocation_id = aws_eip.eip_pub_1a.id
+    subnet_id     = aws_subnet.sn_pub_1a.id
 
 #    tags = {
 #        Name = "ngw_pub_1a"
 #    }
 
-#    depends_on = [aws_internet_gateway.igw]
-#}
+    depends_on = [aws_internet_gateway.igw]
+}
 
 #resource "aws_nat_gateway" "ngw_pub_1c" {
 #    allocation_id = aws_eip.eip_pub_1c.id
