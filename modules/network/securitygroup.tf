@@ -1,6 +1,7 @@
 # RESOURCE: SECURITY GROUP
 resource "aws_security_group" "vpc_sg_pub" {
-    vpc_id = "${var.vpc_id}"
+#    vpc_id = "${var.vpc_id}"
+    vpc_id = "${module.network.vpc_id}"
     egress {
         from_port   = "${var.vpc_sg_port_all}"
         to_port     = "${var.vpc_sg_port_all}"
@@ -28,7 +29,8 @@ resource "aws_security_group" "vpc_sg_pub" {
 }
 
 resource "aws_security_group" "vpc_sg_priv" {
-    vpc_id = "${var.vpc_id}"
+#    vpc_id = "${var.vpc_id}"
+    vpc_id = "${module.network.vpc_id}"
     egress {
         from_port   = "${var.vpc_sg_port_all}"
         to_port     = "${var.vpc_sg_port_all}"
