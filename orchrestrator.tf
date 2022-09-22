@@ -1,11 +1,11 @@
 # MODULES
 module "vpc" {
-    source            = "./modules/network"
-    vpc_cidr          = "${var.vpc_cidr}"
-    sn_pub_1a_cidr    = "${var.vpc_sn_pub_cidr_1a}"
-    sn_pub_1c_cidr    = "${var.vpc_sn_pub_cidr_1c}"
-    sn_priv_1a_cidr   = "${var.vpc_sn_priv_cidr_1a}"
-    sn_priv_1c_cidr   = "${var.vpc_sn_priv_cidr_1c}"
+    source              = "./modules/network"
+    vpc_cidr            = "${var.vpc_cidr}"
+    vpc_sn_pub_cidr_1a  = "${var.vpc_sn_pub_cidr_1a}"
+    vpc_sn_pub_cidr_1c  = "${var.vpc_sn_pub_cidr_1c}"
+    vpc_sn_priv_cidr_1a = "${var.vpc_sn_priv_cidr_1a}"
+    vpc_sn_priv_cidr_1c = "${var.vpc_sn_priv_cidr_1c}"
 }
 
 #module "rds" {
