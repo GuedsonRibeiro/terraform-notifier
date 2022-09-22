@@ -15,7 +15,7 @@ resource "aws_launch_template" "ec2_lt" {
     instance_type          = "${var.ec2_lt_instance_type}"
     key_name               = "${var.ec2_lt_ssh_key_name}"
     user_data              = "${base64encode(data.template_file.user_data.rendered)}"
-    vpc_security_group_ids = [aws_security_group.ec2_sg_pub.id]
+    vpc_security_group_ids = ["${var.vpc_sg_pub_id}"]
 }
 
 # RESOURCE: APPLICATION LOAD BALANCER
@@ -23,7 +23,7 @@ resource "aws_lb" "ec2_lb" {
     name               = "${var.ec2_lb_name}"
     load_balancer_type = "application"
     subnets            = ["${var.vpc_sn_pub_id_1a}", "${var.vpc_sn_pub_id_1c}"]
-    security_groups    = [aws_security_group.ec2_sg_pub.id]
+    security_groups    = ["${var.vpc_sg_pub_id}"]
 }
 
 resource "aws_lb_target_group" "ec2_lb_tg" {
