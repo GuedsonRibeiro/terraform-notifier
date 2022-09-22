@@ -1,10 +1,17 @@
-# NETWORK VARS (INPUT IS REQUIRED BECAUSE NO DEFAULT IS DEFINED)
+# NETWORK VARS DEFAULT VALUES (INPUT IS REQUIRED BECAUSE NO DEFAULT IS DEFINED)
 variable "vpc_id" {}
 variable "vpc_cidr" {}
 #variable "vpc_sn_pub_id_1a" {}
 #variable "vpc_sn_pub_id_1c" {}
 
-# SECURITY GROUPS VARS
+# DATABASE VARS DEFAULT VALUES (INPUT IS REQUIRED BECAUSE NO DEFAULT IS DEFINED)
+#variable "rds_endpoint" {}
+#variable "rds_user" {}
+#variable "rds_password" {}
+#variable "rds_dbname" {}
+
+
+# COMPUTE VARS DEFAULT VALUES
 variable "ec2_sg_cidr_all" {
     type    = string
     default = "0.0.0.0/0"
@@ -35,16 +42,6 @@ variable "ec2_sg_protocol_tcp" {
     default = "tcp"
 }
 
-# DATABASE VARS
-#variable "rds_endpoint" {}
-
-#variable "rds_user" {}
-
-#variable "rds_password" {}
-
-#variable "rds_name" {}
-
-# EC2 LAUNCH TEMPLATE VARS
 variable "ec2_ami" {
     type    = string
     default = "ami-02e136e904f3da870"
@@ -60,7 +57,6 @@ variable "ec2_ssh_key" {
     default = "vockey"
 }
 
-# EC2 LOAD BALANCER VARS
 variable "ec2_protocol" {
     type    = string
     default = "HTTP"
@@ -71,7 +67,6 @@ variable "ec2_port" {
     default = 80
 }
 
-# EC2 AUTO SCALING GROUP VARS
 variable "ec2_desired_capacity" {
     type    = number
     default = 8

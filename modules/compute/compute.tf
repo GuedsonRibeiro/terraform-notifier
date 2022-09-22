@@ -1,66 +1,56 @@
-# SECURITY GROUP
+# RESOURCE: SECURITY GROUP
 resource "aws_security_group" "ec2_sg_pub" {
-#    name   = "ec2_sg_pub"
     vpc_id = "${var.vpc_id}"
-    
     egress {
         from_port   = "${var.ec2_sg_port_all}"
         to_port     = "${var.ec2_sg_port_all}"
         protocol    = "${var.ec2_sg_protocol_any}"
         cidr_blocks = ["${var.ec2_sg_cidr_all}"]
     }
-
     ingress {
         from_port   = "${var.ec2_sg_port_all}"
         to_port     = "${var.ec2_sg_port_all}"
         protocol    = "${var.ec2_sg_protocol_any}"
         cidr_blocks = ["${var.vpc_cidr}"]
     }
-
     ingress {
         from_port   = "${var.ec2_sg_port_ssh}"
         to_port     = "${var.ec2_sg_port_ssh}"
         protocol    = "${var.ec2_sg_protocol_tcp}"
         cidr_blocks = ["${var.ec2_sg_cidr_all}"]
     }
-    
     ingress {
         from_port   = "${var.ec2_sg_port_http}"
         to_port     = "${var.ec2_sg_port_http}"
         protocol    = "${var.ec2_sg_protocol_tcp}"
         cidr_blocks = ["${var.ec2_sg_cidr_all}"]
     }
-
 }
 
 resource "aws_security_group" "ec2_sg_priv" {
-#    name   = "ec2_sg_priv"
     vpc_id = "${var.vpc_id}"
-    
     egress {
         from_port   = "${var.ec2_sg_port_all}"
         to_port     = "${var.ec2_sg_port_all}"
         protocol    = "${var.ec2_sg_protocol_any}"
         cidr_blocks = ["${var.ec2_sg_cidr_all}"]
     }
-
     ingress {
         from_port   = "${var.ec2_sg_port_all}"
         to_port     = "${var.ec2_sg_port_all}"
         protocol    = "${var.ec2_sg_protocol_any}"
         cidr_blocks = ["${var.vpc_cidr}"]
     }
-
 }
 
-# EC2 LAUNCH TEMPLATE
+# RESOURCE: EC2 LAUNCH TEMPLATE
 #data "template_file" "user_data" {
-#    template = "${file("./modules/ec2/user_data.sh")}"
+#    template = "${file("./modules/compute/scripts/user_data.sh")}"
 #    vars = {
 #        rds_endpoint = "${var.rds_endpoint}"
 #        rds_user     = "${var.rds_user}"
 #        rds_password = "${var.rds_password}"
-#        rds_name     = "${var.rds_name}"
+#        rds_name     = "${var.rds_dbname}"
 #    }
 #}
 
@@ -84,7 +74,7 @@ resource "aws_security_group" "ec2_sg_priv" {
 #    }
 #}
 
-# APPLICATION LOAD BALANCER
+# RESOURCE: APPLICATION LOAD BALANCER
 #resource "aws_lb" "lb_app_notify" {
 #    name               = "lb-app-notify"
 #    load_balancer_type = "application"
@@ -96,7 +86,6 @@ resource "aws_security_group" "ec2_sg_priv" {
 #    }
 #}
 
-# APPLICATION LOAD BALANCER TARGET GROUP
 #resource "aws_lb_target_group" "tg_app_notify" {
 #    name     = "tg-app-notify"
 #    vpc_id   = "${var.vpc_id}"
@@ -108,7 +97,6 @@ resource "aws_security_group" "ec2_sg_priv" {
 #    }
 #}
 
-# APPLICATION LOAD BALANCER LISTENER
 #resource "aws_lb_listener" "listener_app_notify" {
 #    load_balancer_arn = aws_lb.lb_app_notify.arn
 #    protocol          = "${var.protocol}"
@@ -120,7 +108,7 @@ resource "aws_security_group" "ec2_sg_priv" {
 #    }
 #}
 
-# AUTO SCALING GROUP
+# RESOURCE: AUTO SCALING GROUP
 #resource "aws_autoscaling_group" "asg_app_notify" {
 #    name                = "asg_app_notify"
 #    vpc_zone_identifier = ["${var.sn_pub_1a_id}", "${var.sn_pub_1c_id}"]

@@ -1,15 +1,15 @@
-# VPC
+# RESOURCE: VPC
 resource "aws_vpc" "vpc" {
     cidr_block           = "${var.vpc_cidr}"
     enable_dns_hostnames = "${var.vpc_dns_hostnames}"
 }
 
-# INTERNET GATEWAY
+# RESOURCE: INTERNET GATEWAY
 resource "aws_internet_gateway" "igw" {
     vpc_id = aws_vpc.vpc.id
 }
 
-# PUBLIC SUBNETS
+# RESOURCE: SUBNETS
 resource "aws_subnet" "sn_pub_1a" {
     vpc_id                  = aws_vpc.vpc.id
     cidr_block              = "${var.vpc_sn_pub_cidr_1a}"
@@ -24,7 +24,6 @@ resource "aws_subnet" "sn_pub_1c" {
     availability_zone       = "${var.vpc_sn_availability_zone_1c}"
 }
 
-# PRIVATE SUBNETS
 resource "aws_subnet" "sn_priv_1a" {
     vpc_id                  = aws_vpc.vpc.id
     cidr_block              = "${var.vpc_sn_priv_cidr_1a}"
@@ -37,7 +36,7 @@ resource "aws_subnet" "sn_priv_1c" {
     availability_zone       = "${var.vpc_sn_availability_zone_1c}"
 }
 
-# ROUTE TABLES FOR THE PUBLIC SUBNETS
+# RESOURCE: ROUTE TABLES FOR THE SUBNETS
 resource "aws_route_table" "rt_pub_1a" {
     vpc_id = aws_vpc.vpc.id
     route {
@@ -54,7 +53,6 @@ resource "aws_route_table" "rt_pub_1c" {
     }
 }
 
-# ROUTE TABLES FOR THE PRIVATE SUBNETS
 resource "aws_route_table" "rt_priv_1a" {
     vpc_id = aws_vpc.vpc.id
 }
@@ -63,7 +61,7 @@ resource "aws_route_table" "rt_priv_1c" {
     vpc_id = aws_vpc.vpc.id
 }
 
-# PUBLIC SUBNETS ASSOCIATION TO ROUTE TABLES
+# RESOURCE: SUBNET ASSOCIATION TO ROUTE TABLES
 resource "aws_route_table_association" "sn_pub_1a_To_rt_pub_1a" {
   subnet_id      = aws_subnet.sn_pub_1a.id
   route_table_id = aws_route_table.rt_pub_1a.id
@@ -74,7 +72,6 @@ resource "aws_route_table_association" "sn_pub_1c_To_rt_pub_1c" {
   route_table_id = aws_route_table.rt_pub_1c.id
 }
 
-# PRIVATE SUBNETS ASSOCIATION TO ROUTE TABLES
 resource "aws_route_table_association" "sn_priv_1a_To_rt_priv_1a" {
   subnet_id      = aws_subnet.sn_priv_1a.id
   route_table_id = aws_route_table.rt_priv_1a.id

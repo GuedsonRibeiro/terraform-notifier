@@ -1,4 +1,4 @@
-# VPC VARS
+# NETWORK VARS CUSTOM VALUES
 variable "vpc_cidr" {
     type    = string
     default = "10.0.0.0/16"
@@ -24,48 +24,33 @@ variable "vpc_sn_priv_cidr_1c" {
     default = "10.0.4.0/24"
 }
 
-# RDS VARS
-variable "rds_family" {
+# DATABASE VARS CUSTOM VALUES
+variable "rds_identifier" {
     type    = string
-    default = "mysql8.0"
+    default = "rds-notifier"
 }
 
-variable "rds_instance_class" {
+variable "rds_dbname" {
     type    = string
-    default = "db.t2.micro"
+    default = "rds-db-notifier"
 }
 
-variable "rds_storage_type" {
+variable "rds_db_sn_group_name" {
     type    = string
-    default = "gp2"
+    default = "rds-db-sn-group-notifier"
 }
 
-variable "rds_allocated_storage" {
-    type    = number
-    default = 20
-}
-
-variable "rds_db_name" {
+variable "rds_db_param_group_name" {
     type    = string
-    default = "rdsdbnotifier"
+    default = "rds-db-param-group-notifier"
 }
 
-variable "rds_user" {
+variable "rds_primary_availability_zone" {
     type    = string
-    default = "rdsadmin"
+    default = "us-east-1a"
 }
 
-variable "rds_password" {
-    type    = string
-    default = "rdsadminpwd"
-}
-
-variable "rds_name" {
-    type    = string
-    default = "rdsnotifier"
-}
-
-# EC2 VARS
+# COMPUTE VARS CUSTOM VALUES
 variable "ec2_ami" {
     type    = string
     default = "ami-02e136e904f3da870"

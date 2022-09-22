@@ -1,4 +1,4 @@
-# MODULES
+# MODULES ORCHESTRATION
 module "network" {
     source              = "./modules/network"
     vpc_cidr            = "${var.vpc_cidr}"
@@ -8,31 +8,32 @@ module "network" {
     vpc_sn_priv_cidr_1c = "${var.vpc_sn_priv_cidr_1c}"
 }
 
-#module "rds" {
-#    source            = "./modules/rds"
-#    sn_priv_1a_id     = "${module.vpc.sn_priv_id_1a}"
-#    sn_priv_1c_id     = "${module.vpc.sn_priv_id_1c}"
-#    sg_priv_id        = "${module.ec2.sg_priv_id}"
-#    family            = "${var.rds_family}"
-#    instance_class    = "${var.rds_instance_class}"
-#    storage_type      = "${var.rds_storage_type}"
-#    allocated_storage = "${var.rds_allocated_storage}"
-#    db_name           = "${var.rds_db_name}"
-#}
+module "database" {
+    source                        = "./modules/database"
+    vpc_sn_priv_id_1a             = "${module.network.vpc_sn_priv_id_1a}"
+    vpc_sn_priv_id_1c             = "${module.network.vpc_sn_priv_id_1c}"
+    ec2_sg_priv_id                = "${module.compute.ec2_sg_priv_id}"
+    rds_identifier                = "${var.rds_identifier}"
+    rds_dbname                    = "${var.rds_dbname}"
+    rds_db_sn_group_name          = "${var.rds_db_sn_group_name}"
+    rds_db_param_group_name       = "${var.rds_db_param_group_name}"
+    rds_primary_availability_zone = "${var.rds_primary_availability_zone}"
+    
+}
 
 module "compute" {
-    source              = "./modules/compute"
-    vpc_id              = "${module.network.vpc_id}"
-    vpc_cidr            = "${var.vpc_cidr}"
-#    ami               = "${var.ec2_ami}"
-#    instance_type     = "${var.ec2_instance_type}"
-#    sn_pub_1a_id      = "${module.vpc.sn_pub_id_1a}"
-#    sn_pub_1c_id      = "${module.vpc.sn_pub_id_1c}"
-#    desired_capacity  = "${var.ec2_desired_capacity}"
-#    min_size          = "${var.ec2_min_size}"
-#    max_size          = "${var.ec2_max_size}"
-#    rds_endpoint      = "${module.rds.rds_endpoint}"
-#    rds_user          = "${var.rds_user}"
-#    rds_password      = "${var.rds_password}"
-#    rds_name          = "${var.rds_name}"
+    source           = "./modules/compute"
+    vpc_id           = "${module.network.vpc_id}"
+    vpc_cidr         = "${var.vpc_cidr}"
+#    ami              = "${var.ec2_ami}"
+#    instance_type    = "${var.ec2_instance_type}"
+#    sn_pub_1a_id     = "${module.vpc.sn_pub_id_1a}"
+#    sn_pub_1c_id     = "${module.vpc.sn_pub_id_1c}"
+#    desired_capacity = "${var.ec2_desired_capacity}"
+#    min_size         = "${var.ec2_min_size}"
+#    max_size         = "${var.ec2_max_size}"
+#    rds_endpoint     = "${module.database.rds_endpoint}"
+#    rds_user         = "${var.rds_user}"
+#    rds_password     = "${var.rds_password}"
+#    rds_name         = "${var.rds_name}"
 }
