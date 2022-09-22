@@ -3,6 +3,14 @@ output "vpc_id" {
     value = "${aws_vpc.vpc.id}"
 }
 
+output "vpc_sg_pub_id" {
+    value = "${aws_vpc.vpc_sg_pub.id}"
+}
+
+output "vpc_sg_priv_id" {
+    value = "${aws_vpc.vpc_sg_priv.id}"
+}
+
 output "vpc_sn_pub_id_1a" {
     value = "${aws_subnet.sn_pub_1a.id}"
 }

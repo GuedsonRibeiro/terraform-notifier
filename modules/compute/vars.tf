@@ -11,36 +11,6 @@ variable "rds_dbpassword" {}
 variable "rds_dbname" {}
 
 # COMPUTE VARS DEFAULT VALUES
-variable "ec2_sg_cidr_all" {
-    type    = string
-    default = "0.0.0.0/0"
-}
-
-variable "ec2_sg_port_all" {
-    type    = number
-    default = 0
-}
-
-variable "ec2_sg_port_ssh" {
-    type    = number
-    default = 22
-}
-
-variable "ec2_sg_port_http" {
-    type    = number
-    default = 80
-}
-
-variable "ec2_sg_protocol_any" {
-    type    = string
-    default = "-1"
-}
-
-variable "ec2_sg_protocol_tcp" {
-    type    = string
-    default = "tcp"
-}
-
 variable "ec2_lt_name" {
     type    = string
     default = "ec2_lt_name"

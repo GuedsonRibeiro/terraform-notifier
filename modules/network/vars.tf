@@ -4,6 +4,11 @@ variable "vpc_cidr" {
     default = "20.0.0.0/16"
 }
 
+variable "vpc_cidr_all" {
+    type    = string
+    default = "0.0.0.0/0"
+}
+
 variable "vpc_dns_hostnames" {
     type    = bool
     default = true
@@ -44,7 +49,28 @@ variable "vpc_sn_availability_zone_1c" {
     default = "us-east-1c"
 }
 
-variable "vpc_cidr_all" {
+# SECURITY GROUP VARS DEFAULT VALUES
+variable "vpc_sg_port_all" {
+    type    = number
+    default = 0
+}
+
+variable "vpc_sg_port_ssh" {
+    type    = number
+    default = 22
+}
+
+variable "vpc_sg_port_http" {
+    type    = number
+    default = 80
+}
+
+variable "vpc_sg_protocol_any" {
     type    = string
-    default = "0.0.0.0/0"
+    default = "-1"
+}
+
+variable "vpc_sg_protocol_tcp" {
+    type    = string
+    default = "tcp"
 }
