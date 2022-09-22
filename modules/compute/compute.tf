@@ -1,6 +1,6 @@
 # SECURITY GROUP
 resource "aws_security_group" "ec2_sg_pub" {
-    name   = "ec2_sg_pub"
+#    name   = "ec2_sg_pub"
     vpc_id = "${var.vpc_id}"
     
     egress {
@@ -34,7 +34,7 @@ resource "aws_security_group" "ec2_sg_pub" {
 }
 
 resource "aws_security_group" "ec2_sg_priv" {
-    name   = "ec2_sg_priv"
+#    name   = "ec2_sg_priv"
     vpc_id = "${var.vpc_id}"
     
     egress {

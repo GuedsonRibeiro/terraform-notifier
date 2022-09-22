@@ -1,8 +1,10 @@
-# NETWORK VARS TO BE USED FOR THE SECURITY GROUPS
+# NETWORK VARS (INPUT IS REQUIRED BECAUSE NO DEFAULT IS DEFINED)
 variable "vpc_id" {}
-
 variable "vpc_cidr" {}
+#variable "vpc_sn_pub_id_1a" {}
+#variable "vpc_sn_pub_id_1c" {}
 
+# SECURITY GROUPS VARS
 variable "ec2_sg_cidr_all" {
     type    = string
     default = "0.0.0.0/0"
@@ -32,11 +34,6 @@ variable "ec2_sg_protocol_tcp" {
     type    = string
     default = "tcp"
 }
-
-
-#variable "vpc_sn_pub_id_1a" {}
-
-#variable "vpc_sn_pub_id_1c" {}
 
 # DATABASE VARS
 #variable "rds_endpoint" {}
