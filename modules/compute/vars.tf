@@ -1,9 +1,44 @@
-# NETWORK VARS
-variable "vpc_id" {}
+# NETWORK VARS TO BE USED FOR THE SECURITY GROUPS
+variable "vpc_id" {
+    type    = string
+    default = "${module.network.vpc_id}"
+}
 
-variable "vpc_cidr" {}
+variable "vpc_cidr" {
+    type    = string
+    default = "${module.network.vpc_cidr}"
+}
 
-variable "vpc_cidr_all" {}
+variable "ec2_sg_cidr_all" {
+    type    = string
+    default = "0.0.0.0/0"
+}
+
+variable "ec2_sg_port_all" {
+    type    = number
+    default = 0
+}
+
+variable "ec2_sg_port_ssh" {
+    type    = number
+    default = 22
+}
+
+variable "ec2_sg_port_http" {
+    type    = number
+    default = 80
+}
+
+variable "ec2_sg_protocol_any" {
+    type    = string
+    default = "-1"
+}
+
+variable "ec2_sg_protocol_tcp" {
+    type    = string
+    default = "tcp"
+}
+
 
 #variable "vpc_sn_pub_id_1a" {}
 
@@ -17,32 +52,6 @@ variable "vpc_cidr_all" {}
 #variable "rds_password" {}
 
 #variable "rds_name" {}
-
-# EC2 SECURITY GROUP VARS
-variable "ec2_port_all" {
-    type    = number
-    default = 0
-}
-
-variable "ec2_port_ssh" {
-    type    = number
-    default = 22
-}
-
-variable "ec2_port_http" {
-    type    = number
-    default = 80
-}
-
-variable "ec2_protocol_any" {
-    type    = string
-    default = "-1"
-}
-
-variable "ec2_protocol_tcp" {
-    type    = string
-    default = "tcp"
-}
 
 # EC2 LAUNCH TEMPLATE VARS
 variable "ec2_ami" {
