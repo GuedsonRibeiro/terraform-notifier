@@ -81,6 +81,16 @@ variable "ec2_lt_ssh_key_name" {
     default = "vockey"
 }
 
+variable "ec2_lb_name" {
+    type    = string
+    default = "ec2_lb_notifier"
+}
+
+variable "ec2_lb_tg_name" {
+    type    = string
+    default = "ec2_lb_tg_notifier"
+}
+
 variable "ec2_desired_capacity" {
     type    = number
     default = 4

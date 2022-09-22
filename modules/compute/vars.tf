@@ -61,12 +61,32 @@ variable "ec2_lt_ssh_key_name" {
     default = "ec2_lt_ssh_key_name"
 }
 
-variable "ec2_protocol" {
+variable "ec2_lb_name" {
+    type    = string
+    default = "ec2_lb_name"
+}
+
+variable "ec2_lb_tg_name" {
+    type    = string
+    default = "ec2_lb_tg_name"
+}
+
+variable "ec2_lb_tg_protocol" {
     type    = string
     default = "HTTP"
 }
 
-variable "ec2_port" {
+variable "ec2_lb_tg_port" {
+    type    = number
+    default = 80
+}
+
+variable "ec2_lb_listener_protocol" {
+    type    = string
+    default = "HTTP"
+}
+
+variable "ec2_lb_listener_port" {
     type    = number
     default = 80
 }
