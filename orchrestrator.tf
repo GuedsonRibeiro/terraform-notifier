@@ -20,9 +20,11 @@ module "vpc" {
 #    db_name           = "${var.rds_db_name}"
 #}
 
-#module "ec2" {
-#    source            = "./modules/ec2"
-#    vpc_id            = "${module.vpc.vpc_id}"
+module "ec2" {
+    source              = "./modules/compute"
+    vpc_id              = "${module.vpc.vpc_id}"
+    vpc_cidr            = "${module.vpc.vpc_cidr}"
+    vpc_cidr_all        = "${module.vpc.vpc_cidr_all}"
 #    ami               = "${var.ec2_ami}"
 #    instance_type     = "${var.ec2_instance_type}"
 #    sn_pub_1a_id      = "${module.vpc.sn_pub_id_1a}"
@@ -34,4 +36,4 @@ module "vpc" {
 #    rds_user          = "${var.rds_user}"
 #    rds_password      = "${var.rds_password}"
 #    rds_name          = "${var.rds_name}"
-#}
+}
