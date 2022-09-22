@@ -83,12 +83,12 @@ variable "ec2_lt_ssh_key_name" {
 
 variable "ec2_lb_name" {
     type    = string
-    default = "ec2_lb_notifier"
+    default = "ec2-lb-notifier"
 }
 
 variable "ec2_lb_tg_name" {
     type    = string
-    default = "ec2_lb_tg_notifier"
+    default = "ec2-lb-tg_notifier"
 }
 
 variable "ec2_desired_capacity" {

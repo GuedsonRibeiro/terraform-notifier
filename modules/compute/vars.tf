@@ -63,12 +63,12 @@ variable "ec2_lt_ssh_key_name" {
 
 variable "ec2_lb_name" {
     type    = string
-    default = "ec2_lb_name"
+    default = "ec2-lb-name"
 }
 
 variable "ec2_lb_tg_name" {
     type    = string
-    default = "ec2_lb_tg_name"
+    default = "ec2-lb-tg_name"
 }
 
 variable "ec2_lb_tg_protocol" {
