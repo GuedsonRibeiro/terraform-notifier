@@ -68,7 +68,7 @@ variable "ec2_lb_name" {
 
 variable "ec2_lb_tg_name" {
     type    = string
-    default = "ec2-lb-tg_name"
+    default = "ec2-lb-tg-name"
 }
 
 variable "ec2_lb_tg_protocol" {
