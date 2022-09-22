@@ -65,8 +65,8 @@ resource "aws_route_table_association" "rt_pub_sn_priv_az1" {
   route_table_id = aws_route_table.rt_priv.id
 }
 
-resource "aws_route_table_association" "rt_pub_sn_priv_az1" {
-  subnet_id      = aws_subnet.sn_priv_az1.id
+resource "aws_route_table_association" "rt_pub_sn_priv_az2" {
+  subnet_id      = aws_subnet.sn_priv_az2.id
   route_table_id = aws_route_table.rt_priv.id
 }
 
