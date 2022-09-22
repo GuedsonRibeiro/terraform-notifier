@@ -91,17 +91,15 @@ resource "aws_lb_listener" "ec2_lb_listener" {
 }
 
 # RESOURCE: AUTO SCALING GROUP
-#resource "aws_autoscaling_group" "asg_app_notify" {
-#    name                = "asg_app_notify"
-#    vpc_zone_identifier = ["${var.sn_pub_1a_id}", "${var.sn_pub_1c_id}"]
-#    desired_capacity    = "${var.desired_capacity}"
-#    min_size            = "${var.min_size}"
-#    max_size            = "${var.max_size}"
-#    target_group_arns   = [aws_lb_target_group.tg_app_notify.arn]
-
-#    launch_template {
-#        id      = aws_launch_template.lt_app_notify.id
-#        version = "$Latest"
-#    }
-   
-#}
+resource "aws_autoscaling_group" "ec2_asg" {
+    name                = "${var.ec2_asg_name}"
+    desired_capacity    = "${var.ec2_asg_desired_capacity}"
+    min_size            = "${var.ec2_asg_min_size}"
+    max_size            = "${var.ec2_asg_max_size}"
+    vpc_zone_identifier = ["${var.vpc_sn_pub_id_1a}", "${var.vpc_sn_pub_id_1c}"]
+    target_group_arns   = [aws_lb_target_group.ec2_lb_tg.arn]
+    launch_template {
+        id      = aws_launch_template.ec2_lt.id
+        version = "$Latest"
+    }
+}

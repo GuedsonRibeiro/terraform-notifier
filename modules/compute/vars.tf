@@ -96,17 +96,22 @@ variable "ec2_lb_listener_action_type" {
     default = "forward"
 }
 
-variable "ec2_desired_capacity" {
+variable "ec2_asg_name" {
+    type    = string
+    default = "ec2-asg-name"
+}
+
+variable "ec2_asg_desired_capacity" {
     type    = number
     default = 8
 }
 
-variable "ec2_min_size" {
+variable "ec2_asg_min_size" {
     type    = number
     default = 4
 }
 
-variable "ec2_max_size" {
+variable "ec2_asg_max_size" {
     type    = number
     default = 16
 }
