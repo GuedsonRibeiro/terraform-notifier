@@ -63,7 +63,7 @@ variable "rds_dbpassword" {
 # COMPUTE VARS CUSTOM VALUES
 variable "ec2_lt_name" {
     type    = string
-    default = "ec2_lt_name_notifier"
+    default = "ec2_lt_notifier"
 }
 
 variable "ec2_lt_ami" {
