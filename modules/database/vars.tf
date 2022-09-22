@@ -1,6 +1,7 @@
 # NETWORK VARS DEFAULT VALUES (INPUT IS REQUIRED BECAUSE NO DEFAULT IS DEFINED)
-variable "vpc_sn_priv_id_1a" {}
-variable "vpc_sn_priv_id_1c" {}
+variable "vpc_az1" {}
+variable "vpc_sn_priv_az1_id" {}
+variable "vpc_sn_priv_az2_id" {}
 variable "vpc_sg_priv_id" {}
 
 # DATABASE VARS DEFAULT VALUES
@@ -67,11 +68,6 @@ variable "rds_monitoring_interval" {
 variable "rds_skip_final_snapshot" {
     type    = bool
     default = true
-}
-
-variable "rds_primary_availability_zone" {
-    type    = string
-    default = "us-east-1a"
 }
 
 variable "rds_dbname" {

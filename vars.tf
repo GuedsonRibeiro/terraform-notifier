@@ -4,22 +4,32 @@ variable "vpc_cidr" {
     default = "10.0.0.0/16"
 }
 
-variable "vpc_sn_pub_cidr_1a" {
+variable "vpc_az1" {
+    type    = string
+    default = "us-east-1a"
+}
+
+variable "vpc_az2" {
+    type    = string
+    default = "us-east-1c"
+}
+
+variable "vpc_sn_pub_az1_cidr" {
     type    = string
     default = "10.0.1.0/24"
 }
 
-variable "vpc_sn_pub_cidr_1c" {
+variable "vpc_sn_pub_az2_cidr" {
     type    = string
     default = "10.0.2.0/24"
 }
 
-variable "vpc_sn_priv_cidr_1a" {
+variable "vpc_sn_priv_az1_cidr" {
     type    = string
     default = "10.0.3.0/24"
 }
 
-variable "vpc_sn_priv_cidr_1c" {
+variable "vpc_sn_priv_az2_cidr" {
     type    = string
     default = "10.0.4.0/24"
 }
@@ -38,11 +48,6 @@ variable "rds_sn_group_name" {
 variable "rds_param_group_name" {
     type    = string
     default = "rds-param-group-notifier"
-}
-
-variable "rds_primary_availability_zone" {
-    type    = string
-    default = "us-east-1a"
 }
 
 variable "rds_dbname" {

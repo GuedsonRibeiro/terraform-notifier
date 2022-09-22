@@ -10,34 +10,34 @@ resource "aws_internet_gateway" "igw" {
 }
 
 # RESOURCE: SUBNETS
-resource "aws_subnet" "sn_pub_1a" {
+resource "aws_subnet" "sn_pub_az1" {
     vpc_id                  = aws_vpc.vpc.id
-    cidr_block              = "${var.vpc_sn_pub_cidr_1a}"
+    availability_zone       = "${var.vpc_az1}"
+    cidr_block              = "${var.vpc_sn_pub_az1_cidr}"
     map_public_ip_on_launch = "${var.vpc_sn_pub_map_public_ip_on_launch}"
-    availability_zone       = "${var.vpc_sn_availability_zone_1a}"
 }
 
-resource "aws_subnet" "sn_pub_1c" {
+resource "aws_subnet" "sn_pub_az2" {
     vpc_id                  = aws_vpc.vpc.id
-    cidr_block              = "${var.vpc_sn_pub_cidr_1c}"
+    availability_zone       = "${var.vpc_az2}"
+    cidr_block              = "${var.vpc_sn_pub_az2_cidr}"
     map_public_ip_on_launch = "${var.vpc_sn_pub_map_public_ip_on_launch}"
-    availability_zone       = "${var.vpc_sn_availability_zone_1c}"
 }
 
-resource "aws_subnet" "sn_priv_1a" {
+resource "aws_subnet" "sn_priv_az1" {
     vpc_id                  = aws_vpc.vpc.id
-    cidr_block              = "${var.vpc_sn_priv_cidr_1a}"
-    availability_zone       = "${var.vpc_sn_availability_zone_1a}"
+    availability_zone       = "${var.vpc_az1}"
+    cidr_block              = "${var.vpc_sn_priv_az1_cidr}"
 }
 
-resource "aws_subnet" "sn_priv_1c" {
+resource "aws_subnet" "sn_priv_az2" {
     vpc_id                  = aws_vpc.vpc.id
-    cidr_block              = "${var.vpc_sn_priv_cidr_1c}"
-    availability_zone       = "${var.vpc_sn_availability_zone_1c}"
+    availability_zone       = "${var.vpc_az2}"
+    cidr_block              = "${var.vpc_sn_priv_az2_cidr}"
 }
 
 # RESOURCE: ROUTE TABLES FOR THE SUBNETS
-resource "aws_route_table" "rt_pub_1a" {
+resource "aws_route_table" "rt_pub" {
     vpc_id = aws_vpc.vpc.id
     route {
         cidr_block = "${var.vpc_cidr_all}"
@@ -45,41 +45,29 @@ resource "aws_route_table" "rt_pub_1a" {
     }
 }
 
-resource "aws_route_table" "rt_pub_1c" {
-    vpc_id = aws_vpc.vpc.id
-    route {
-        cidr_block = "${var.vpc_cidr_all}"
-        gateway_id = aws_internet_gateway.igw.id
-    }
-}
-
-resource "aws_route_table" "rt_priv_1a" {
-    vpc_id = aws_vpc.vpc.id
-}
-
-resource "aws_route_table" "rt_priv_1c" {
+resource "aws_route_table" "rt_priv" {
     vpc_id = aws_vpc.vpc.id
 }
 
 # RESOURCE: ROUTE TABLES ASSOCIATION TO SUBNETS
-resource "aws_route_table_association" "sn_pub_1a_To_rt_pub_1a" {
-  subnet_id      = aws_subnet.sn_pub_1a.id
-  route_table_id = aws_route_table.rt_pub_1a.id
+resource "aws_route_table_association" "rt_pub_sn_pub_az1" {
+  subnet_id      = aws_subnet.sn_pub_az1.id
+  route_table_id = aws_route_table.rt_pub.id
 }
 
-resource "aws_route_table_association" "sn_pub_1c_To_rt_pub_1c" {
-  subnet_id      = aws_subnet.sn_pub_1c.id
-  route_table_id = aws_route_table.rt_pub_1c.id
+resource "aws_route_table_association" "rt_pub_sn_pub_az2" {
+  subnet_id      = aws_subnet.sn_pub_az2.id
+  route_table_id = aws_route_table.rt_pub.id
 }
 
-resource "aws_route_table_association" "sn_priv_1a_To_rt_priv_1a" {
-  subnet_id      = aws_subnet.sn_priv_1a.id
-  route_table_id = aws_route_table.rt_priv_1a.id
+resource "aws_route_table_association" "rt_pub_sn_priv_az1" {
+  subnet_id      = aws_subnet.sn_priv_az1.id
+  route_table_id = aws_route_table.rt_priv.id
 }
 
-resource "aws_route_table_association" "sn_priv_1c_To_rt_priv_1c" {
-  subnet_id      = aws_subnet.sn_priv_1c.id
-  route_table_id = aws_route_table.rt_priv_1c.id
+resource "aws_route_table_association" "rt_pub_sn_priv_az1" {
+  subnet_id      = aws_subnet.sn_priv_az1.id
+  route_table_id = aws_route_table.rt_priv.id
 }
 
 # RESOURCE: SECURITY GROUPS
@@ -126,4 +114,3 @@ resource "aws_security_group" "vpc_sg_priv" {
         cidr_blocks = ["${var.vpc_cidr}"]
     }
 }
-

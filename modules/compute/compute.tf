@@ -22,7 +22,7 @@ resource "aws_launch_template" "ec2_lt" {
 resource "aws_lb" "ec2_lb" {
     name               = "${var.ec2_lb_name}"
     load_balancer_type = "application"
-    subnets            = ["${var.vpc_sn_pub_id_1a}", "${var.vpc_sn_pub_id_1c}"]
+    subnets            = ["${var.vpc_sn_pub_az1_id}", "${var.vpc_sn_pub_az2_id}"]
     security_groups    = ["${var.vpc_sg_pub_id}"]
 }
 
@@ -51,7 +51,7 @@ resource "aws_autoscaling_group" "ec2_asg" {
     desired_capacity    = "${var.ec2_asg_desired_capacity}"
     min_size            = "${var.ec2_asg_min_size}"
     max_size            = "${var.ec2_asg_max_size}"
-    vpc_zone_identifier = ["${var.vpc_sn_pub_id_1a}", "${var.vpc_sn_pub_id_1c}"]
+    vpc_zone_identifier = ["${var.vpc_sn_pub_az1_id}", "${var.vpc_sn_pub_az2_id}"]
     target_group_arns   = [aws_lb_target_group.ec2_lb_tg.arn]
     launch_template {
         id      = aws_launch_template.ec2_lt.id

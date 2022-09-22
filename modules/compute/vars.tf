@@ -1,8 +1,8 @@
 # NETWORK VARS DEFAULT VALUES (INPUT IS REQUIRED BECAUSE NO DEFAULT IS DEFINED)
 variable "vpc_id" {}
 variable "vpc_cidr" {}
-variable "vpc_sn_pub_id_1a" {}
-variable "vpc_sn_pub_id_1c" {}
+variable "vpc_sn_pub_az1_id" {}
+variable "vpc_sn_pub_az2_id" {}
 variable "vpc_sg_pub_id" {}
 
 # DATABASE VARS DEFAULT VALUES (INPUT IS REQUIRED BECAUSE NO DEFAULT IS DEFINED)

@@ -1,7 +1,7 @@
 # RESOURCE: DB SUBNET GROUP
 resource "aws_db_subnet_group" "rds_sn_group" {
     name       = "${var.rds_sn_group_name}"
-    subnet_ids = ["${var.vpc_sn_priv_id_1a}", "${var.vpc_sn_priv_id_1c}"]
+    subnet_ids = ["${var.vpc_sn_priv_az1_id}", "${var.vpc_sn_priv_az2_id}"]
 }
 
 # RESOURCE: DB PARAMETER GROUP
@@ -34,6 +34,6 @@ resource "aws_db_instance" "rds_dbinstance" {
     skip_final_snapshot    = "${var.rds_skip_final_snapshot}"
     db_subnet_group_name   = aws_db_subnet_group.rds_sn_group.name
     parameter_group_name   = aws_db_parameter_group.rds_param_group.name
-    availability_zone      = "${var.rds_primary_availability_zone}"
+    availability_zone      = "${var.vpc_az1}"
     vpc_security_group_ids = ["${var.vpc_sg_priv_id}"]
 }
