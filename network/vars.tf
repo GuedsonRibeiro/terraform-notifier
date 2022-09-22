@@ -25,11 +25,6 @@ variable "vpc_sn_pub_map_public_ip_on_launch" {
     default = true
 }
 
-variable "vpc_igw_route_cidr_block" {
-    type    = string
-    default = "0.0.0.0/0"
-}
-
 # PRIVATE SUBNETS
 variable "vpc_sn_priv_cidr_1a" {
     type    = string
@@ -50,4 +45,10 @@ variable "vpc_sn_availability_zone_1a" {
 variable "vpc_sn_availability_zone_1c" {
     type    = string
     default = "us-east-1c"
+}
+
+# NETWORKS FOR ROUTES
+variable "vpc_cidr_all" {
+    type    = string
+    default = "0.0.0.0/0"
 }
