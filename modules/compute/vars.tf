@@ -5,18 +5,18 @@ variable "vpc_cidr" {}
 
 variable "vpc_cidr_all" {}
 
-variable "vpc_sn_pub_id_1a" {}
+#variable "vpc_sn_pub_id_1a" {}
 
-variable "vpc_sn_pub_id_1c" {}
+#variable "vpc_sn_pub_id_1c" {}
 
 # DATABASE VARS
-variable "rds_endpoint" {}
+#variable "rds_endpoint" {}
 
-variable "rds_user" {}
+#variable "rds_user" {}
 
-variable "rds_password" {}
+#variable "rds_password" {}
 
-variable "rds_name" {}
+#variable "rds_name" {}
 
 # EC2 SECURITY GROUP VARS
 variable "ec2_port_all" {
@@ -43,7 +43,6 @@ variable "ec2_protocol_tcp" {
     type    = string
     default = "tcp"
 }
-
 
 # EC2 LAUNCH TEMPLATE VARS
 variable "ec2_ami" {
