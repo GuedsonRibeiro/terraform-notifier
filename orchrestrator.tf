@@ -8,19 +8,19 @@ module "network" {
     vpc_sn_priv_cidr_1c = "${var.vpc_sn_priv_cidr_1c}"
 }
 
-#module "database" {
-#    source                        = "./modules/database"
-#    vpc_sn_priv_id_1a             = "${module.network.vpc_sn_priv_id_1a}"
-#    vpc_sn_priv_id_1c             = "${module.network.vpc_sn_priv_id_1c}"
-#    vpc_sg_priv_id                = "${module.network.vpc_sg_priv_id}"
-#    rds_identifier                = "${var.rds_identifier}"
-#    rds_sn_group_name             = "${var.rds_sn_group_name}"
-#    rds_param_group_name          = "${var.rds_param_group_name}"
-#    rds_primary_availability_zone = "${var.rds_primary_availability_zone}"
-#    rds_dbname                    = "${var.rds_dbname}"
-#    rds_dbuser                    = "${var.rds_dbuser}"
-#    rds_dbpassword                = "${var.rds_dbpassword}"   
-#}
+module "database" {
+    source                        = "./modules/database"
+    vpc_sn_priv_id_1a             = "${module.network.vpc_sn_priv_id_1a}"
+    vpc_sn_priv_id_1c             = "${module.network.vpc_sn_priv_id_1c}"
+    vpc_sg_priv_id                = "${module.network.vpc_sg_priv_id}"
+    rds_identifier                = "${var.rds_identifier}"
+    rds_sn_group_name             = "${var.rds_sn_group_name}"
+    rds_param_group_name          = "${var.rds_param_group_name}"
+    rds_primary_availability_zone = "${var.rds_primary_availability_zone}"
+    rds_dbname                    = "${var.rds_dbname}"
+    rds_dbuser                    = "${var.rds_dbuser}"
+    rds_dbpassword                = "${var.rds_dbpassword}"   
+}
 
 #module "compute" {
 #    source                   = "./modules/compute"

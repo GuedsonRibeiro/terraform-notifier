@@ -61,7 +61,7 @@ resource "aws_route_table" "rt_priv_1c" {
     vpc_id = aws_vpc.vpc.id
 }
 
-# RESOURCE: SUBNET ASSOCIATION TO ROUTE TABLES
+# RESOURCE: ROUTE TABLES ASSOCIATION TO SUBNETS
 resource "aws_route_table_association" "sn_pub_1a_To_rt_pub_1a" {
   subnet_id      = aws_subnet.sn_pub_1a.id
   route_table_id = aws_route_table.rt_pub_1a.id
@@ -82,7 +82,7 @@ resource "aws_route_table_association" "sn_priv_1c_To_rt_priv_1c" {
   route_table_id = aws_route_table.rt_priv_1c.id
 }
 
-# RESOURCE: SECURITY GROUP
+# RESOURCE: SECURITY GROUPS
 resource "aws_security_group" "vpc_sg_pub" {
     vpc_id = aws_vpc.vpc.id
     egress {

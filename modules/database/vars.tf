@@ -1,9 +1,7 @@
 # NETWORK VARS DEFAULT VALUES (INPUT IS REQUIRED BECAUSE NO DEFAULT IS DEFINED)
 variable "vpc_sn_priv_id_1a" {}
 variable "vpc_sn_priv_id_1c" {}
-
-# COMPUTE VARS DEFAULT VALUES (INPUT IS REQUIRED BECAUSE NO DEFAULT IS DEFINED)
-variable "ec2_sg_priv_id" {}
+variable "vpc_sg_priv_id" {}
 
 # DATABASE VARS DEFAULT VALUES
 variable "rds_sn_group_name" {
