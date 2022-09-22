@@ -32,7 +32,7 @@ variable "rds_identifier" {
 
 variable "rds_dbname" {
     type    = string
-    default = "rds-db-notifier"
+    default = "rdsdbnotifier"
 }
 
 variable "rds_db_sn_group_name" {
