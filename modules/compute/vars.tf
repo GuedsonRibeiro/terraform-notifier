@@ -91,6 +91,11 @@ variable "ec2_lb_listener_port" {
     default = 80
 }
 
+variable "ec2_lb_listener_action_type" {
+    type    = string
+    default = "forward"
+}
+
 variable "ec2_desired_capacity" {
     type    = number
     default = 8
