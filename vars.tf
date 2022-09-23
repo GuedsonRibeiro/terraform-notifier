@@ -37,7 +37,7 @@ variable "vpc_sn_priv_az2_cidr" {
 # DATABASE VARS CUSTOM VALUES
 variable "rds_identifier" {
     type    = string
-    default = "rds-notifier1"
+    default = "rds-notifier"
 }
 
 variable "rds_sn_group_name" {
