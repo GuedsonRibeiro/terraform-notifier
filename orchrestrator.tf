@@ -19,7 +19,6 @@ module "database" {
     rds_dbname           = "${var.rds_dbname}"
     rds_dbuser           = "${var.rds_dbuser}"
     rds_dbpassword       = "${var.rds_dbpassword}"
-    vpc_az1              = "${var.vpc_az1}"
     vpc_sn_priv_az1_id   = "${module.network.vpc_sn_priv_az1_id}"
     vpc_sn_priv_az2_id   = "${module.network.vpc_sn_priv_az2_id}"
     vpc_sg_priv_id       = "${module.network.vpc_sg_priv_id}"

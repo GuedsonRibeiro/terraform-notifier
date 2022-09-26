@@ -40,6 +40,5 @@ resource "aws_db_instance" "rds_dbinstance" {
     multi_az               = "${var.rds_multi_az}"
     db_subnet_group_name   = aws_db_subnet_group.rds_sn_group.name
     parameter_group_name   = aws_db_parameter_group.rds_param_group.name
-#    availability_zone      = "${var.vpc_az1}"
     vpc_security_group_ids = ["${var.vpc_sg_priv_id}"]
 }
