@@ -87,3 +87,8 @@ variable "rds_dbpassword" {
     type    = string
     default = "rdsdbpassword" 
 }
+
+variable "rds_multi_az" {
+    type    = bool
+    default = true
+}
