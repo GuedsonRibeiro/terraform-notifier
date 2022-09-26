@@ -1,10 +1,13 @@
 # RESOURCE: DB SUBNET GROUP
+
 resource "aws_db_subnet_group" "rds_sn_group" {
     name       = "${var.rds_sn_group_name}"
     subnet_ids = ["${var.vpc_sn_priv_az1_id}", "${var.vpc_sn_priv_az2_id}"]
 }
 
+
 # RESOURCE: DB PARAMETER GROUP
+
 resource "aws_db_parameter_group" "rds_param_group" {
     name   = "${var.rds_param_group_name}"
     family = "${var.rds_family}"
@@ -18,7 +21,9 @@ resource "aws_db_parameter_group" "rds_param_group" {
     }
 }
 
+
 # RESOURCE: DB INSTANCE
+
 resource "aws_db_instance" "rds_dbinstance" {
     identifier             = "${var.rds_identifier}"
     engine                 = "${var.rds_engine}"

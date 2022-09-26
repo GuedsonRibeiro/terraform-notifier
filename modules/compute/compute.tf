@@ -1,4 +1,5 @@
 # RESOURCE: EC2 LAUNCH TEMPLATE
+
 data "template_file" "user_data" {
     template = "${file("./modules/compute/scripts/user_data.sh")}"
     vars = {
@@ -18,7 +19,9 @@ resource "aws_launch_template" "ec2_lt" {
     vpc_security_group_ids = ["${var.vpc_sg_pub_id}"]
 }
 
+
 # RESOURCE: APPLICATION LOAD BALANCER
+
 resource "aws_lb" "ec2_lb" {
     name               = "${var.ec2_lb_name}"
     load_balancer_type = "application"
@@ -45,7 +48,9 @@ resource "aws_lb_listener" "ec2_lb_listener" {
     }
 }
 
+
 # RESOURCE: AUTO SCALING GROUP
+
 resource "aws_autoscaling_group" "ec2_asg" {
     name                = "${var.ec2_asg_name}"
     desired_capacity    = "${var.ec2_asg_desired_capacity}"

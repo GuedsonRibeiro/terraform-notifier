@@ -1,10 +1,13 @@
 # NETWORK VARS DEFAULT VALUES (INPUT IS REQUIRED BECAUSE NO DEFAULT IS DEFINED)
+
 variable "vpc_az1" {}
 variable "vpc_sn_priv_az1_id" {}
 variable "vpc_sn_priv_az2_id" {}
 variable "vpc_sg_priv_id" {}
 
+
 # DATABASE VARS DEFAULT VALUES
+
 variable "rds_sn_group_name" {
     type    = string
     default = "rds-sn-group-name"

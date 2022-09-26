@@ -1,4 +1,5 @@
 # NETWORK VARS DEFAULT VALUES
+
 variable "vpc_cidr" {
     type    = string
     default = "20.0.0.0/16"
@@ -49,7 +50,9 @@ variable "vpc_sn_priv_az2_cidr" {
     default = "20.0.4.0/24"
 }
 
+
 # SECURITY GROUP VARS DEFAULT VALUES
+
 variable "vpc_sg_port_all" {
     type    = number
     default = 0
