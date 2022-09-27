@@ -27,7 +27,7 @@ jobs:
     - name: Step 03 - CheckOut GitHub Repo
       uses: actions/checkout@v1
 
-    - name: Step 04 - Set AWS Account Access
+    - name: Step 04 - Set AWS Account
       uses: aws-actions/configure-aws-credentials@v1
       with:
         aws-access-key-id    : ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -49,3 +49,13 @@ jobs:
 
     - name: Step 09 - Terraform Show
       run : terraform show
+
+    - name: Step 10 - Set AWS Account on EC2
+      run : |
+        mkdir -p /root/.aws
+        cat <<EOT >> /root/.aws/credentials
+        [default]
+        aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_access_key = ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws_session_token = ${{ secrets.AWS_SESSION_TOKEN }}
+        EOT

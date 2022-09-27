@@ -19,12 +19,6 @@ mkdir -p /opt/aws/sdk/php/
 cd /opt/aws/sdk/php/
 wget https://docs.aws.amazon.com/aws-sdk-php/v3/download/aws.zip
 unzip aws.zip
-mkdir -p /root/.aws
-cat <<EOT >> /root/.aws/credentials
-[default]
-aws_access_key_id = ${access_key_id}
-aws_secret_access_key = ${secret_key}
-EOT
 
 # Config connect to Database
 cat <<EOT >> /var/www/config.php

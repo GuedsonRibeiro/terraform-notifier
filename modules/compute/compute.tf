@@ -7,8 +7,6 @@ data "template_file" "user_data" {
         rds_dbuser     = "${var.rds_dbuser}"
         rds_dbpassword = "${var.rds_dbpassword}"
         rds_dbname     = "${var.rds_dbname}"
-        access_key_id  = "${var.access_key_id}"
-        secret_key     = "${var.secret_key}"
     }
 }
 
