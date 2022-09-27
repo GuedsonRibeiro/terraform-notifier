@@ -52,8 +52,8 @@ jobs:
 
     - name: Step 10 - Set AWS Account on EC2
       run : |
-        mkdir -p /root/.aws/
-        cat <<EOT >> /root/.aws/credentials
+        mkdir -p ~/.aws/
+        cat <<EOT >> ~/.aws/credentials
         [default]
         aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_access_key = ${{ secrets.AWS_SECRET_ACCESS_KEY }}
