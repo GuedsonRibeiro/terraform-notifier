@@ -49,13 +49,3 @@ jobs:
 
     - name: Step 09 - Terraform Show
       run : terraform show
-
-    - name: Step 10 - Set AWS Account on EC2
-      run : |
-        mkdir -p ~/.aws/
-        cat <<EOT >> ~/.aws/credentials
-        [default]
-        aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws_secret_access_key = ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws_session_token = ${{ secrets.AWS_SESSION_TOKEN }}
-        EOT

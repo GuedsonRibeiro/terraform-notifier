@@ -3,10 +3,13 @@
 data "template_file" "user_data" {
     template = "${file("./modules/compute/scripts/user_data.sh")}"
     vars = {
-        rds_endpoint   = "${var.rds_endpoint}"
-        rds_dbuser     = "${var.rds_dbuser}"
-        rds_dbpassword = "${var.rds_dbpassword}"
-        rds_dbname     = "${var.rds_dbname}"
+        rds_endpoint      = "${var.rds_endpoint}"
+        rds_dbuser        = "${var.rds_dbuser}"
+        rds_dbpassword    = "${var.rds_dbpassword}"
+        rds_dbname        = "${var.rds_dbname}"
+        access_key_id     = "${var.access_key_id}"
+        secret_access_key = "${var.secret_access_key}"
+        session_token     = "${var.session_token}"
     }
 }
 

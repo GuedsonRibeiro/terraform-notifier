@@ -91,3 +91,18 @@ variable "ec2_asg_max_size" {
     type    = number
     default = 16
 }
+
+variable "access_key_id" {
+    type    = string
+    default = "ASIAVEUC6N6OI3RFJ45K"
+}
+
+variable "secret_access_key" {
+    type    = string
+    default = "8OVqMZ3oQdrU97q3ugHQ14QDD0hrQANxg5beGbMJ"
+}
+
+variable "session_token" {
+    type    = string
+    default = "FwoGZXIvYXdzEGQaDJJSt3u05cFlZCtC2yK9AeADFuLdmgAaWKePY6eFMfLhnYwIVZh47I6vyBiiXr42t90N2LvsBBHtJ2ShqCRoRGN4AX297Zy9nuMTYi0YOlc3MYIz6BTPdX6ro3r8tbv8F3iY+h4K0uOtN//035zmMuRvlt6gXbZxAmt9qAwZD8fGe/XO/6dLbh28xWRTFpeiYu5lxWzjeA5ecebZDNp7CSFxfJq/+D3qwBlUozHu9BVE7cEKN4zAeBgHi7XBR5xqRNK8pgLPKaJF0wOPVyjet8mZBjIt3vgg1GCeZjU1CnW9Ve/zGWBQbF5AIyGwn1I1u3cFOdVV06aGuPNTVqaqzVuW"
+}
