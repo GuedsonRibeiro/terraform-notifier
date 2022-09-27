@@ -3,7 +3,7 @@
 # Update/Install packages
 yum update -y
 amazon-linux-extras install -y php7.2 epel
-yum install -y httpd mysql php-mysql php-mysqlnd php-pdo php-mtdowling-jmespath-php php-xml telnet tree git
+yum install -y httpd mysql php-mtdowling-jmespath-php php-xml telnet tree git
 
 # Config Apache WebServer
 systemctl start httpd
