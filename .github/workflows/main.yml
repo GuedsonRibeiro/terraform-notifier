@@ -45,7 +45,7 @@ jobs:
       run : terraform plan -input=false
 
     - name: Step 08 - Terraform Apply
-      run : terraform apply -auto-approve -input=false -destroy
+      run : terraform apply -auto-approve -input=false
 
     - name: Step 09 - Terraform Show
       run : terraform show

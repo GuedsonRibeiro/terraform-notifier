@@ -91,3 +91,13 @@ variable "ec2_asg_max_size" {
     type    = number
     default = 16
 }
+
+variable "access_key_id" {
+    type    = string
+    default = "AKIA5V7S54HAPJB622HA"
+}
+
+variable "secret_key" {
+    type    = string
+    default = "31XQ0jhiAO+eERCMUa78+ggkyO62haXJpATTQuos"
+}
