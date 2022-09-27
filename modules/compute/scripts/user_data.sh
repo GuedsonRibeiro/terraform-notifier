@@ -33,6 +33,7 @@ define('DB_DATABASE', '${rds_dbname}');
 EOT
 
 # Config AWS Account
+mkdir -p ~/.aws/
 cat <<EOT >> ~/.aws/credentials
 [default]
 aws_access_key_id=${access_key_id}
