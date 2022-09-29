@@ -94,15 +94,15 @@ variable "ec2_asg_max_size" {
 
 variable "access_key_id" {
     type    = string
-    default = "ASIAVEUC6N6OFCXNNDMW"
+    default = "ASIAVEUC6N6OJGFYQJ57"
 }
 
 variable "secret_access_key" {
     type    = string
-    default = "2clU8V49Qw3zf3wZ4Cu++iAeNiNdBAMEItiRumty"
+    default = "+WImZNnJgTnhecloR1AuukG36DZIVL/u0CZ9KU9F"
 }
 
 variable "session_token" {
     type    = string
-    default = "FwoGZXIvYXdzEJD//////////wEaDKHrn1SLXop6tFFu7iK9AeE2AKteJfWcSpqvNh2KY/BbcCNBqSYcDfQZfjYFTjFAEHIEG1Pg3ccUFm0igz1CseQMYw/c17fYWkeh8xiF5y1/a44dxDSwN/jv4Nd6RMtUsV/1C+ZX9iLNviBoD0zHBAfhO+DgHrcFgC9eO2FPy4WhrtSzjAll/d+b4RBbh3icEr153oERJMoeBeSn1IDn4r06hi5MNI2N9z0QWl3K6MWnRa1BWCHsrPIBYHKh0Qw7oquylLpXbGmsS/x4QijPk9OZBjItM4HmHBL8EWSvyUAgSrIjPbQQVNwziMplPmEFlivsLFsUVu2TXoFz8bRWkyCf"
+    default = "FwoGZXIvYXdzEJ7//////////wEaDDvMBfShgAzM6Uvz4SK9AYoMd/FnB/n1n26TKNdT0kSgv/kpBM1GZ2A7Ch6X0g2jSHRP56z5OZVF1721vV9mSkzJvF6RitgLg78kOxAYp36YRcH+R9FtC6EaAnWujl3k8h1SMj+pkgDt8I7UhpfZ5rpXgRAuMtCjoU/LWEvyczdP3s3T7OhpSe8U7QWkxfinYks6IiAApaC49mnOQuPWqLP8lBxUAejdxy5EiqKu176ilWY4qR9I4LE+/SlpcgTvvG8oph0b2XDg8yjSMCiok9aZBjItOaTLOaYm5Ux6gO/be9c6R9d/kLf/2nGsqw8jEFWIvIKbTWvz04U0LfYvdcYU"
 }
