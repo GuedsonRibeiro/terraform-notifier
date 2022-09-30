@@ -31,6 +31,7 @@ module "compute" {
     ec2_lt_instance_type     = "${var.ec2_lt_instance_type}"
     ec2_lt_ssh_key_name      = "${var.ec2_lt_ssh_key_name}"
     ec2_lb_name              = "${var.ec2_lb_name}"
+    ec2_lb_listener_name     = "${var.ec2_lb_listener_name}"
     ec2_lb_tg_name           = "${var.ec2_lb_tg_name}"
     ec2_asg_name             = "${var.ec2_asg_name}"
     ec2_asg_desired_capacity = "${var.ec2_asg_desired_capacity}"

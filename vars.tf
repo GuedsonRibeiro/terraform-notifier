@@ -101,6 +101,11 @@ variable "ec2_lb_tg_name" {
     default = "ec2-lb-tg-notifier"
 }
 
+variable "ec2_lb_listener_name" {
+    type    = string
+    default = "ec2-lb-listener-notifier"
+}
+
 variable "ec2_asg_name" {
     type    = string
     default = "ec2-asg-notifier"
