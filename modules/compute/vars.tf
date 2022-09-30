@@ -57,11 +57,6 @@ variable "ec2_lb_tg_port" {
     default = 80
 }
 
-variable "ec2_lb_listener_name" {
-    type    = string
-    default = "ec2-lb-listener-name"
-}
-
 variable "ec2_lb_listener_protocol" {
     type    = string
     default = "HTTP"

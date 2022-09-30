@@ -40,7 +40,6 @@ resource "aws_lb_target_group" "ec2_lb_tg" {
 }
 
 resource "aws_lb_listener" "ec2_lb_listener" {
-    name              = "${var.ec2_lb_listener_name}"
     protocol          = "${var.ec2_lb_listener_protocol}"
     port              = "${var.ec2_lb_listener_port}"
     load_balancer_arn = aws_lb.ec2_lb.arn
